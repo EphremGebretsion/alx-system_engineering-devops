@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "$(cat|cut -c1|tr -d "\n")\n"
+echo -e "$(cat|cut -c1|tr -d "\n")"
