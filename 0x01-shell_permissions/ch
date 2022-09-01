@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "what is the file name:"
+read name
+chmod u+x $name
