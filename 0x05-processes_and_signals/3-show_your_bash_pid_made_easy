@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This will display all bash processed with pid and name
+prs="$(pgrep bash)"
+for i in $prs
+do
+name="$(tr -d '\0' < /proc/"$i"/cmdline)"
+echo "$i $name"
+done

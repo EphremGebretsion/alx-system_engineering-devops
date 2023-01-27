@@ -3,5 +3,6 @@
 while true
 do
 echo "To infinity and beyond"
+ps -u
 sleep 2
 done
