@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # debug the web server
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx start
+service nginx restart
