@@ -1,2 +1,2 @@
-web server configuration using nginx
-web server
+web server nginx installation and 
+web server cofiguration
