@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# debug the web server
-sed -i 's/8080/80/' /etc/nginx/sites-available/default
-sed -i 's/default_server\(.*\);/default_server;/' /etc/nginx/sites-available/default
-cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx restart

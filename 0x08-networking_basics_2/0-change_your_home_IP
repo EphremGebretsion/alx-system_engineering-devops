@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# This script will update the facebook and localhost ip in hosts
-cp /etc/hosts ~/hostss.new
-sed -i 's/127.0.0.1/127.0.0.2/' ~/hostss.new
-sed -i 's/157.240.11.35/8.8.8.8/' ~/hostss.new
-cp -f ~/hostss.new /etc/hosts
-rm ~/hostss.new
