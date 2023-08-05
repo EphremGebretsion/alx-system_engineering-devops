@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# run nginx as nginx user
-sed -i "s/#user.*/user nginx;/" /etc/nginx/nginx.conf
-chmod o+r /etc/nginx/nginx.conf
-sudo -u nginx service nginx restart

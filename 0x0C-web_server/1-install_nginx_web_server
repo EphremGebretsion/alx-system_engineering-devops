@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# configure new ubuntu machine
-sudo apt-get update
-sudo apt-get install nginx -y
-echo "Hello World!" >/tmp/tes
-sudo sed -i 's-root \(.*\);-root /tmp;-' /etc/nginx/sites-enabled/default
-sudo sed -i 's/index /index tes /' /etc/nginx/sites-enabled/default
-sudo service nginx restart
-
