@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#install HAproxy load balancer
+sudo apt-get install --no-install-recommends software-properties-common -y
+sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
+sudo apt-get install haproxy=2.0.\* -y
+mv /etc/haproxy/haproxy.cfg{,.original}
+
+printf %s "bvackend web-backend
+   balance roundrobin
+   server web1 web1.yourdomain.com:80 check
+   server web2 web2.yourdomain.com:80 check
+   
+backend blog-backend
+   balance roundrobin
+   mode http
+   server blog1 blog1.yourdomain.com:80 check
+   server blog1 blog1.yourdomain.com:80 check" >> /etc/haproxy/haproxy.xfg
