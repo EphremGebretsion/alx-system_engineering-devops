@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# this script will add a header to our server response header
+me_host=$(hostname)
+new_line="server {\n\tadd_header X-Served-By: $me_host;"
+sudo sed -i "s|server {|$new_line|" /etc/nginx/sites-available/default
+sudo service nginx restart
