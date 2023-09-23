@@ -3,10 +3,12 @@
 sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
 sudo apt-get install haproxy=2.0.\* -y
-mv /etc/haproxy/haproxy.cfg{,.original}
-
-printf %s "bvackend web-backend
-   balance roundrobin
-   server 58119-web-01 34.207.154.247:80 check
-   server 58119-web-02 100.25.3.135:80 check
-   " >> /etc/haproxy/haproxy.xfg
+sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
+sudo touch /etc/haproxy/haproxy.cfg
+sudo echo "frontend my_front
+	bind *:80
+	default_backend my_servers">> /etc/haproxy/haproxy.cfg
+sudo echo "backend my_servers
+	server web1 34.207.154.247:80 check
+	server web2 100.25.3.135:80 check">> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
