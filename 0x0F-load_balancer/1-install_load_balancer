@@ -4,6 +4,7 @@ sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
 sudo apt-get install haproxy=2.0.\* -y
 sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
+sudo echo "ENABLED=1">> /etc/default/haproxy
 sudo touch /etc/haproxy/haproxy.cfg
 sudo echo "frontend my_front
 	bind *:80
