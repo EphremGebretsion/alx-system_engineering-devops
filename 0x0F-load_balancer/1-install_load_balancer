@@ -9,6 +9,6 @@ sudo echo "frontend my_front
 	bind *:80
 	default_backend my_servers">> /etc/haproxy/haproxy.cfg
 sudo echo "backend my_servers
-	server web1 34.207.154.247:80 check
-	server web2 100.25.3.135:80 check">> /etc/haproxy/haproxy.cfg
+	server web1 52.91.133.216:80 check
+	server web2 54.227.128.170:80 check">> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
