@@ -2,5 +2,12 @@
 # this script will add a header to our server response header
 me_host=$(hostname)
 new_line="server {\n\tadd_header X-Served-By $me_host;"
+sudo apt-get update
+sudo apt-get install nginx -y
+echo "Hello World!" >/tmp/tes
+sudo sed -i 's-root \(.*\);-root /tmp;-' /etc/nginx/sites-available/default
+sudo sed -i 's/index /index tes /' /etc/nginx/sites-available/default
+sudo sed -i 's|server_name _;|server_name _;\n\nlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}|' /etc/nginx/sites-available/default
+sudo ln -f -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo sed "s|server {|$new_line|" /etc/nginx/sites-available/default
 sudo service nginx restart

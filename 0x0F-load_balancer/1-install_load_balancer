@@ -7,11 +7,6 @@ mv /etc/haproxy/haproxy.cfg{,.original}
 
 printf %s "bvackend web-backend
    balance roundrobin
-   server web1 web1.yourdomain.com:80 check
-   server web2 web2.yourdomain.com:80 check
-   
-backend blog-backend
-   balance roundrobin
-   mode http
-   server blog1 blog1.yourdomain.com:80 check
-   server blog1 blog1.yourdomain.com:80 check" >> /etc/haproxy/haproxy.xfg
+   server 58119-web-01 34.207.154.247:80 check
+   server 58119-web-02 100.25.3.135:80 check
+   " >> /etc/haproxy/haproxy.xfg
