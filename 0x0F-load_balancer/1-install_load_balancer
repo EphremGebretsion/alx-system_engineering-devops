@@ -7,10 +7,14 @@ sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
 sudo echo "ENABLED=1">> /etc/default/haproxy
 sudo touch /etc/haproxy/haproxy.cfg
 sudo echo "frontend my_front
+	timeout client 10000
 	bind *:80
+	mode http
 	default_backend my_servers">> /etc/haproxy/haproxy.cfg
 sudo echo "backend my_servers
 	mode http
+	timeout server 10000
+	timeout connect 5000
 	balance roundrobin
 	server web1 52.91.133.216:80 check
 	server web2 54.227.128.170:80 check">> /etc/haproxy/haproxy.cfg
