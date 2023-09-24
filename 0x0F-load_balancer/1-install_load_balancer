@@ -18,6 +18,5 @@ sudo echo "backend my_servers
 	balance roundrobin
 	server web1 52.91.133.216:80 check
 	server web2 54.227.128.170:80 check">> /etc/haproxy/haproxy.cfg
-sudo service haproxy restart
 sudo systemctl enable haproxy
 
