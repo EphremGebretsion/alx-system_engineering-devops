@@ -17,7 +17,7 @@ frontend my_frontend
 	bind *:80
 	default_backend my_servers
 
-backend servers
+backend my_servers
 	balance roundrobin
 	server 58119-web-01 52.91.133.216:80 check
 	server 58119-web-02 54.227.128.170:80 check" >> /etc/haproxy/haproxy.cfg
