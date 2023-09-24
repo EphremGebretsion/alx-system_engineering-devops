@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #install HAproxy load balancer
+sudo apt-get update
 sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
+sudo apt-get update
 sudo apt-get install haproxy=2.0.\* -y
 sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
 sudo echo "ENABLED=1">> /etc/default/haproxy
@@ -33,3 +35,4 @@ backend servers
     server 58119-web-02 54.227.128.170:80 check
 " >> /etc/haproxy/haproxy.cfg
 sudo systemctl enable haproxy
+sudo service haproxy restart
