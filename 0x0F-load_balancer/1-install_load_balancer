@@ -29,7 +29,7 @@ frontend http-in
 
 backend servers
     balance roundrobin
-    server 4306-web-01 54.234.16.12:80 check
-    server 4306-web-02 107.23.106.236:80 check
+    server 58119-web-01 52.91.133.216:80 check
+    server 58119-web-02 54.227.128.170:80 check
 " >> /etc/haproxy/haproxy.cfg
 sudo systemctl enable haproxy
