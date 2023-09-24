@@ -16,7 +16,7 @@ sudo echo "backend my_servers
 	timeout server 10000
 	timeout connect 5000
 	balance roundrobin
-	server web1 52.91.133.216:80 check
-	server web2 54.227.128.170:80 check">> /etc/haproxy/haproxy.cfg
+	server web-01 52.91.133.216:80 check
+	server web-02 54.227.128.170:80 check">> /etc/haproxy/haproxy.cfg
 sudo systemctl enable haproxy
 
