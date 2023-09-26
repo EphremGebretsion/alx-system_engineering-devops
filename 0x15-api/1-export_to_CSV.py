@@ -8,7 +8,7 @@ from sys import argv
 
 def addToList(user_id, users, tasks):
     """ creates a list for the later use """
-    name = users[user_id - 1].get("name")
+    name = users[user_id - 1].get("username")
     my_list = []
     last = user_id * 20
     i = last - 20
