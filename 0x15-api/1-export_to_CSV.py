@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ export the data to a CSV file """
-from csv import writer
+import csv
 from json import loads
 from urllib import request
 from sys import argv
@@ -14,9 +14,11 @@ def addToList(user_id, users, tasks):
     i = last - 20
 
     while (i < last):
-        data = [str(user_id), str(name), str(tasks[i].get("completed")),
-                str(tasks[i].get("title"))]
-        my_list.append(data)
+        qq = '"'
+        data = [user_id, name, tasks[i].get("completed"),
+                tasks[i].get("title")]
+        formated_data = [str(a) for a in data]
+        my_list.append(formated_data)
         i += 1
 
     return my_list
@@ -30,6 +32,6 @@ if __name__ == "__main__":
     users = loads(user_req.read().decode("UTF-8"))
     tasks = loads(task_req.read().decode("UTF-8"))
 
-    my_writer = writer(my_file)
+    my_writer = csv.writer(my_file, quoting=csv.QUOTE_ALL)
     my_writer.writerows(addToList(user_id, users, tasks))
     my_file.close()
