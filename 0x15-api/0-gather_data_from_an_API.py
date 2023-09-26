@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """" this script will display the to dolist info usinf id"""
-from sys import argv
-from math import ceil
 from json import loads
+from math import ceil
+from sys import argv
 from urllib import request
 
 
