@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# This will kill 4-to_infinity_and_beyond
-pgrep ./5-dont_stop_me_now

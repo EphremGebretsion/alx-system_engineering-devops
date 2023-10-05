@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# pings the given network ip or host
-if [ "${1+defined}" ]
-then
-ping -c5 "$1"
-else
-echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-fi
