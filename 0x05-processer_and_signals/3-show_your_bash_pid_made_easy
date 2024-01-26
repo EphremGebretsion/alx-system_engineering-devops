@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# This will display all bash processed with pid and name
-prs="$(pgrep bash)"
-for i in $prs
-do
-echo "$i bash"
-done

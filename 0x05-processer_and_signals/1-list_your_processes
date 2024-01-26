@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Displays all running processes in user orented forat
-ps -auxH
