@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This will kill 4-to_infinity_and_beyond
+p=$(pgrep -f 4-to_infinity_and_beyond)
+kill "$p"
