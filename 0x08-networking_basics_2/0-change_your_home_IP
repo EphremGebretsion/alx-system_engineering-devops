@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # change the localhost and facebook.com IP resolves to 127.0.0.2 & 8.8.8.8
 sudo cp /etc/hosts ~/hosts.new
+if ! grep -P -q "\tlocalhost" ~/hosts.new
+then
+sudo sed -i '1i\127.0.0.2\tlocalhost' ~/hosts.new
+else
 sudo sed -i 's-.*\tlocalhost-127.0.0.2\tlocalhost-' ~/hosts.new
+fi
 if sudo grep -q "facebook" ~/hosts.new
 then
 sudo sed -i 's-.*\tfacebook.com-8.8.8.8\tfacebook.com-' ~/hosts.new
 else
 n=$(grep -n 127.0.0.2 ~/hosts.new | head -n 1| cut -d ":" -f1)
 n=$((n + 1))
-sudo sed "${n}i8.8.8.8\tfacebook.com" ~/hosts.new
+sudo sed -i "${n}i8.8.8.8\tfacebook.com" ~/hosts.new
 fi
 sudo cp -f ~/hosts.new /etc/hosts
