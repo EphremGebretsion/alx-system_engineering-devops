@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # starts apache service
-sudo echo "Listen 8080" >> /etc/apache2/apache2.conf
+sudo echo "Listen 8080" |sudo tee -a /etc/apache2/apache2.conf
 sudo service apache2 restart
