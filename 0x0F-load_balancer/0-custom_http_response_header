@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script adds a header X-Served-By
+host=$(hostname)
+sudo sed -i "s/^server {/server {\n\tadd_header X-Served-By $host;\n/" /etc/nginx/sites-available/default
+sudo service nginx restart
