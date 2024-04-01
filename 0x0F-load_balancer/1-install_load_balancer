@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This Script installs and confugures HAproxy
+sudo apt-get update
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
+sudo apt-get update
+sudo apt-get install haproxy=2.0.\* -y
+sudo echo "frontend my_front
+        bind *:80
+        default_backend my_servers
+
+backend my_servers
+        balance roundrobin
+        server 58119-web-01 54.160.104.157:80 check
+        server 58119-web-02 54.90.4.143:80 check
+">> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
