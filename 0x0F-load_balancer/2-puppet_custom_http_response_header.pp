@@ -21,6 +21,10 @@ command => "/usr/bin/sed -i 's/index /index tes /' /etc/nginx/sites-available/de
 exec { 'redirect':
 command => "/usr/bin/sed -i 's|server_name _;|server_name _;\\n\\n\\tlocation /redirect_me {\\n\\t\\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\\n\\t}|' /etc/nginx/sites-available/default",
 }
+exec { 'eror-404':
+command => "/usr/bin/sed -i 's|^[^#]location / {|\\tlocation / {\\n\\t\\te
+rror_page 404 /error404.html;|' /etc/nginx/sites-available/default",
+}
 exec { 'add-header':
 command => "/usr/bin/sed -i 's/^server {/server {\\n\\tadd_header X-Served-By $(hostname);\\n/' /etc/nginx/sites-available/default",
 }
