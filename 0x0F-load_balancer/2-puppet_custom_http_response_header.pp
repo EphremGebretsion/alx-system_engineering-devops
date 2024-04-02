@@ -21,11 +21,8 @@ command => "/usr/bin/sed -i 's/index /index tes /' /etc/nginx/sites-available/de
 exec { 'redirect':
 command => "/usr/bin/sed -i 's|server_name _;|server_name _;\\n\\n\\tlocation /redirect_me {\\n\\t\\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\\n\\t}|' /etc/nginx/sites-available/default",
 }
-file_line {'add header':
-ensure => present,
-path   => '/etc/nginx/sites-available/default',
-line   => "\tadd_header X-Served-By ${hostname};",
-after  => '^server {',
+exec { 'add-header':
+command => "/usr/bin/sed -i 's/^server {/server {\\n\\tadd_header X-Served-By $(hostname);\\n/' /etc/nginx/sites-available/default",
 }
 exec { 'apply':
 command => '/usr/sbin/service nginx restart',
