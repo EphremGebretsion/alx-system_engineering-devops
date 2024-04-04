@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # debug the web server
-sed -i 's/8080/80/' /etc/nginx/sites-available/default
+sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 service nginx restart
+echo "no id"> /run/nginx/pid
