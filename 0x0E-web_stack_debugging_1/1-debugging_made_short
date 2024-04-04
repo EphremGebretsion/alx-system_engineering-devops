@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # debug the web server
-sed -i -e 's/8080/80/' -e 's/default_server.*;/default_server;/' /etc/nginx/sites-available/default
+sed -i -e 's/8080/80/' -e /etc/nginx/sites-available/default
 ln -f -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
