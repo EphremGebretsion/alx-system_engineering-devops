@@ -2,4 +2,3 @@
 # debug the web server
 sed -i 's/8080/80/' /etc/nginx/sites-available/default
 ln -f -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-service nginx restart
