@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # run nginx as nginx user
 sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
-sudo sed -i 's/default_server\(.*\);/default_server;/' /etc/nginx/sites-available/default
+sudo sed -i 's/default_server.*;/default_server;/' /etc/nginx/sites-available/default
+sudo sed -i 's/Listen 8080/Listen 8888/' /etc/apache2/ports.conf
+sudo service apache2 kill
 sudo chmod o+r /etc/nginx/nginx.conf
+sudo pkill -f apache2
 sudo -u nginx service nginx restart
