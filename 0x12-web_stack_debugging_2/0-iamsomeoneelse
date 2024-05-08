@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#runs whoami command on a given user
-sudo -u "$1" whoami
