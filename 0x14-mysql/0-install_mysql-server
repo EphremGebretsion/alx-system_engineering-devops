@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# installs mysql-server
+if mysql --version &> /dev/null
+then
+	sudo service mysql stop
+	sudo apt remove mysql-server -y
+	sudo apt update
+fi
+sudo wget https://raw.githubusercontent.com/nuuxcode/alx-system_engineering-devops/master/scripts/mysql57 && sudo chmod +x mysql57 && sudo ./mysql57 -y
